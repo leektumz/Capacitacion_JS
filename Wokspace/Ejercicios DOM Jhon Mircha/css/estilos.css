@@ -1,0 +1,350 @@
+/******** RESET CSS ***********/
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-coolor: rgba(34, 34, 34, 0.85);
+  --container-with: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/******** Menú de Hamburguesa ***********/
+.header {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background-color: var(--main-color);
+  color: var(--main-font);
+  z-index: 997;
+}
+
+.header h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.section {
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--container-with);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.panel {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--second-color);
+  opacity: 0.8;
+  width: 100%;
+  transform: translate(0, -100%);
+  transition: transform 0.3s ease !important;
+  visibility: hidden;
+}
+
+.panel.is-active {
+  /*   transform: translate(0, 0); */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* .panel-btn {
+  position: fixed;
+  z-index: 999;
+  right: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color) !important;
+
+  bottom: 0;
+} */
+
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu a {
+  padding: 2rem;
+  width: inherit;
+  display: block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: all 0.3 ease;
+}
+
+.menu a:hover {
+  font-weight: bold;
+  color: var(--second-color);
+  background-color: var(--main-modal-color);
+}
+
+/** Eventos del teclado **/
+
+.stage {
+  display: flex;
+  background-color: var(--second-color);
+  min-height: 50vh;
+}
+
+.ball {
+  margin: auto;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+/* Boton Scroll Top */
+
+.scroll-top-button {
+  bottom: 0;
+  right: calc(4.45rem + 1vw);
+  width: 4rem;
+  height: 4rem;
+  z-index: 999;
+  position: fixed;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  outline: 0;
+  border: 0;
+}
+
+.scroll-top-button:hover {
+  background-color: var(--second-color);
+  color: #f7df1e;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Boton Theme*/
+
+.dark-theme-btn {
+  bottom: 0;
+  left: 1vw;
+  width: 4rem;
+  height: 4rem;
+  z-index: 999;
+  position: fixed;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  outline: 0;
+  border: 0;
+}
+
+.dark-theme-btn:hover {
+  background-color: var(--second-color);
+  color: #f7df1e;
+}
+
+.dark-mode {
+  background-color: #222;
+  color: grey;
+}
+
+/* Network Satus*/
+
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 1.5rem;
+  text-align: center;
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.offline {
+  background-color: red;
+}
+
+/* Contenedor Tarjetas Filtros Búsqueda */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--second-color);
+  color: #f7df1e;
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+figcaption {
+  padding: 20px;
+}
+
+/*Slider Responsive*/
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+  border: thin solid black;
+}
+
+.slider-slides {
+  position: relative;
+  height: 350px;
+}
+
+.slider-slide {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slider-slide img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.slider-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: thin solid black;
+  text-decoration: none;
+  background-color: white;
+  color: #222;
+  transition: all 03s ease;
+}
+
+.slider-buttons {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.slider-buttons:hover a {
+  color: gray;
+}
+
+/* Scroll Spy */
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+      "header header"
+      "main" "panel";
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .panel {
+    grid-area: panel;
+    align-self: start;
+    position: sticky;
+    top: 4rem;
+    justify-content: flex-start;
+    background-color: var(--second-color);
+    transform: translate(0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .panel-btn {
+    display: none !important;
+  }
+
+  .menu {
+    justify-content: start;
+  }
+
+  .menu a {
+    font-size: 1rem;
+    padding: 1.75rem;
+  }
+}
